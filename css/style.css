@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+footer,
+.navbar nav {
+    height: 3.5rem;
+}
+
+footer,
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar nav ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.navbar nav ul li {
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.navbar nav ul li a {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: black;
+    margin-left: 1rem;
+}
+
+.navbar nav ul li a:hover {
+    color: chocolate;
+}
+
+.navbar nav ul li img {
+    height: 3.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h3 {
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+footer {
+    background-color: #c2c2c2;
+    position: sticky;
+    bottom: 0;
+}
+
+footer p {
+    text-align: center;
+}
+
+.mainContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.mainContact form>* {
+    min-width: calc(100% - 1rem);
+    height: 2rem;
+    font-size: 1.1rem;
+}
+
+.mainContact>div>h4 {
+    padding: 2rem;
+    font-size: 2rem;
+    color: blue;
+}
+
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #c2c2c2;
+}
+
+#cart,
+#product-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#product-list>div {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+}
+
+.cart_title {
+    background-color: #c2c2c2;
+    height: 1.5rem;
+}
+
+.button_grey {
+    background-color: #c2c2c2;
+    height: 2rem;
+    padding: .25rem;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    margin: .25rem;
+}
+
+.button_grey:hover {
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+}
+
+
+.botonera {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.botonera button {
+    background-color: chocolate;
+    width: 6rem;
+    border: none;
+    border-radius: .25rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.slide {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+    width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slide li {
+    display: none;
+    flex: 0 0 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide li img {
+    width: 840px;
+    height: 480px;
+    border-radius: 1rem;
+}
+
+.slide li.active {
+    display: block;
+}
+
+.control {
+    cursor: pointer;
+    padding: 10px;
+}
+
+#error_carrito {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#error_carrito p {
+    width: 600px;
+    background-color: #c2c2c2;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .5rem;
+}
+
+/* .swal2-styled{
+    background-color: #c2c2c2 !important;
+    width: 6rem ;
+}
+
+.swal2-timer-progress-bar {
+    height: 1rem !important;
+    background-color: blue !important;
+}
+
+
+.swiper {
+    width: 600px;
+    height: 300px;
+} */
+
+.titulo {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.div-busqueda{
+    padding: 2rem;
+}
+.busqueda{
+    min-width: 240px;
+    margin: 1rem;
+}
+.tarjetas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 4rem;
+}
+.card{
+    align-items: center;
+}
+.card img{
+    width: 16rem;
+    padding: .5rem;
+}
