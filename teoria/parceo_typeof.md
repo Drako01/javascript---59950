@@ -80,28 +80,6 @@ if (typeof value === "string") {
 }
 ```
 
-### Ejemplo Práctico
-
-Supongamos que tienes una función que recibe un valor y quieres asegurarte de que es un número para realizar cálculos:
-
-```javascript
-function processValue(value) {
-  if (typeof value === "string") {
-    value = parseFloat(value);
-  }
-  
-  if (typeof value === "number" && !isNaN(value)) {
-    // Realizar cálculos con el valor numérico
-    let result = value * 2;
-    console.log("El resultado es:", result);
-  } else {
-    console.log("El valor no es un número válido.");
-  }
-}
-
-processValue("123.45"); // El resultado es: 246.9
-processValue("abc"); // El valor no es un número válido.
-```
 
 
 ---
