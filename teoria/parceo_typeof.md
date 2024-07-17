@@ -80,28 +80,88 @@ if (typeof value === "string") {
 }
 ```
 
-### Ejemplo Práctico
 
-Supongamos que tienes una función que recibe un valor y quieres asegurarte de que es un número para realizar cálculos:
+El operador `===` en JavaScript se conoce como el operador de igualdad estricta. Se utiliza para comparar dos valores y verificar si son iguales tanto en valor como en tipo. A diferencia del operador `==`, que solo compara el valor, el operador `===` también compara el tipo de los valores.
+
+### Ejemplos de Uso del Operador `===`
+
+#### Comparación de Números
+```javascript
+let num1 = 5;
+let num2 = 5;
+console.log(num1 === num2); // true
+```
+
+#### Comparación de Cadenas
+```javascript
+let str1 = "hello";
+let str2 = "hello";
+console.log(str1 === str2); // true
+```
+
+#### Comparación de Tipos Diferentes
+```javascript
+let num = 5;
+let str = "5";
+console.log(num === str); // false
+```
+
+#### Comparación de Booleanos
+```javascript
+let bool1 = true;
+let bool2 = true;
+console.log(bool1 === bool2); // true
+```
+
+### Diferencias entre `===` y `==`
+
+El operador `==` hace una comparación menos estricta porque realiza conversiones de tipo implícitas si los valores no son del mismo tipo. Esto puede llevar a resultados inesperados.
+
+#### Ejemplos de `==`
+```javascript
+let num = 5;
+let str = "5";
+console.log(num == str); // true (porque se convierte '5' a 5 antes de la comparación)
+```
+
+#### Ejemplos de `===`
+```javascript
+let num = 5;
+let str = "5";
+console.log(num === str); // false (porque no son del mismo tipo)
+```
+
+### ¿Cuándo Utilizar `===`?
+
+#### Evitar Errores de Comparación
+
+Usar `===` ayuda a evitar errores que pueden surgir de las conversiones de tipo implícitas. Esto es especialmente útil cuando trabajas con datos provenientes de diferentes fuentes, como entradas del usuario o datos de una API.
+
+#### Comparación de Tipos
+
+Si necesitas asegurarte de que dos variables no solo tienen el mismo valor, sino también el mismo tipo, `===` es la mejor opción.
+
+#### Código Más Seguro y Legible
+
+El uso de `===` hace que tu código sea más explícito y legible, ya que no se realizan conversiones de tipo detrás de escena. Esto facilita la comprensión del comportamiento del código.
+
+### Ejemplos Prácticos
+
+#### Validación de Entradas de Usuario
+Supongamos que estás desarrollando un formulario que solo acepta números como entrada:
 
 ```javascript
-function processValue(value) {
-  if (typeof value === "string") {
-    value = parseFloat(value);
-  }
-  
-  if (typeof value === "number" && !isNaN(value)) {
-    // Realizar cálculos con el valor numérico
-    let result = value * 2;
-    console.log("El resultado es:", result);
-  } else {
-    console.log("El valor no es un número válido.");
-  }
+let userInput = prompt("Introduce un número:");
+if (typeof userInput === "string") {
+  userInput = parseInt(userInput, 10);
 }
-
-processValue("123.45"); // El resultado es: 246.9
-processValue("abc"); // El valor no es un número válido.
+if (userInput === 10) {
+  console.log("Has introducido el número 10.");
+} else {
+  console.log("El número introducido no es 10.");
+}
 ```
+
 
 
 ---
