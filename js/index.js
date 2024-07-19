@@ -1,102 +1,54 @@
-// Ciclos e iteraciones
-// Actualizacion:
-// let i = 0;
-// console.log(i)
-// i = i + 1;
-// console.log(i)
-// i = i + 1;
-// console.log(i)
-// i = i + 1; // i++
-// console.log(i)
-// i++
-// console.log("i Actualizado con i++ ", i)
-
-// Ciclo for
-// for(desde, hasta, actualizacion ) {
-//     lo que quiero que se ejecute;
-// }
-// let i = 0;
-// for (i; i <= 10; i++) {
-//     console.log("Se esta ejecutando un for hasta el " + i)
-// }
-
-
-// let ingreseUnNumero = parseInt(prompt("Ingrese un numero"));
-// console.log("Tabla de Multiplicar del " + ingreseUnNumero);
-
-// for (let i = 1; i <= 10; i++) {
-//     let r = ingreseUnNumero * i; // r = 3 * 1
-//     console.log(ingreseUnNumero + " x " + i + " = " + r)
-// }
-
-
-// let nombre = prompt("Ingrese su Nombre")
-
-// for(let i = 1; i <= 5; i++ ) {
-//     console.log("Su nombre es: " + nombre);
-// }
-
-// for (let i = 1; i <= 100; i++) {
-//     console.log("Los numeros son: " + i);
-//     if (i == 19) {
-//         console.log("Esto esta dentro del IF: " + i);
-//         break; // Corta la ejecucion del for
-//     }    
-// }
-
-// for (let i = 1; i <= 20; i++) {
-
-//     if (i == 10) {
-//         continue; // Saltea el 10
-//     }
-//     console.log("Los numeros son: " + i);
-// }
-
 /**
- *  i % 2 === 0 // Numeros Pares
- *  i % 2 !== 0 // Numeros Impares
- */
+    16 - Crea una variable llamada nombreUsuario y asígnale un nombre. Luego, 
+    verifica si el nombre tiene más de 6 
+    caracteres e imprime un mensaje correspondiente.
 
+    18 - Pide al usuario que ingrese su nombre utilizando prompt, luego verifica 
+    si comienza con la letra "A" o "a" e 
+    imprime un mensaje correspondiente.        
+*/
 
-// for (let i = 1; i <= 20; i++) {
+// Ejercicio 16
 
-//     if (i % 2 !== 0) {
-//         continue; // Saltea los numeros Impares
-//     }
-//     console.log("Los numeros Pares son: " + i);
+// let nombreUsuario = "Ale";
+// let caracteres = nombreUsuario.length; // Cuenta la cantidad de caracteres de el String
+
+// if( caracteres > 6 ) {
+//     console.log("El nombre: " + nombreUsuario + " tiene mas de 6 caracteres.!")
+// } else {
+//     console.log("El nombre: " + nombreUsuario + " tiene menos de 6 caracteres.!")
 // }
 
-// Ciclo While
-// let ingreseUnValor = prompt("Ingrese un numero");
+// Ejercicio 18
+// let nombreIngresado = prompt("Ingrese su nombre"); // Del tipo String
 
-// while(ingreseUnValor != 0) {
-//     console.log("El usuario ingreso: " + ingreseUnValor);
-//     ingreseUnValor = prompt("Ingrese otro valor"); // Poner el freno de mano
+// if(nombreIngresado.charAt(0).toUpperCase() === 'A') {
+//     console.log("Tu nombre empieza con A")
+// } else {
+//     console.log("Tu nombre No empieza con A")
 // }
 
-// Ciclo do While
-// let ingreseUnValor = prompt("Ingrese un numero");
+// Solicitar al usuario ingresar un numero y ver si era o no primo
+let numeroIngresado = parseInt(prompt("Ingrese un número"));
 
-// do {
-//     console.log("El usuario ingreso: " + ingreseUnValor);
-//     ingreseUnValor = prompt("Ingrese otro valor");
-// } while (ingreseUnValor != 0)
+let esPrimo = true;
 
-//  Switch
-
-let ingreseSuNombre = prompt("Ingrese su Nombre");
-
-while (ingreseSuNombre != "Chau") {
-    switch (ingreseSuNombre) {
-        case "Alejandro":
-            console.log("Su nombre es Alejandro");
+if (numeroIngresado > 1) {
+    for (let i = 2; i < numeroIngresado; i++) {
+        if (numeroIngresado % i === 0) {
+            esPrimo = false;
             break;
-        case "JavaScript":
-            console.log(ingreseSuNombre + " No es un Nombre");
-            break;
-        default:
-            console.log("Nos vemos en Disney");
-            break;
+        }
     }
-    ingreseSuNombre = prompt("Ingrese otro Nombre");
+
+    if (esPrimo) {
+        console.log("El número: " + numeroIngresado + " es Primo");
+    } else {
+        console.log("El número: " + numeroIngresado + " No es Primo");
+    }
+
+} else {
+    console.log("El número: " + numeroIngresado + " No es Primo");
 }
+
+
