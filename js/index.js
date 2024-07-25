@@ -161,7 +161,8 @@
 
 // Clases
 class Vehiculo {
-    constructor(marca, color, precio, modelo, cilindraje) {
+    constructor(tipo, marca, color, precio, modelo, cilindraje) {
+        this.tipo = tipo;
         this.marca = marca;
         this.color = color;
         this.precio = precio;
@@ -169,16 +170,16 @@ class Vehiculo {
         this.cilindraje = cilindraje;
     }
     encender() {
-        console.log("El " + this.marca + " esta encendido.!")
+        console.log("El/La " + this.tipo + " esta encendido/a.!")
     }
     apagar() {
-        console.log("El " + this.marca + "  esta apagado.!")
+        console.log("El/La " + this.tipo + "  esta apagado/a.!")
     }
 }
 
-const auto = new Vehiculo("Ford", "Azul", 100000, 2024, "3.0");
+const auto = new Vehiculo("Auto", "Ford", "Azul", 100000, 2024, "3.0");
 console.log(auto);
-const moto = new Vehiculo("Toyota", "Verde", 12000, 2022, "1.0");
+const moto = new Vehiculo("Moto", "Toyota", "Verde", 12000, 2022, "1.0");
 console.log(moto);
 auto.encender();
 auto.apagar();
