@@ -1,4 +1,3 @@
-
 # Teoría de la Clase 05
 
 ## Funciones Recurrentes
@@ -24,15 +23,6 @@ console.log(factorial(5)); // 120
 ```
 
 En este ejemplo, la función `factorial` se llama a sí misma hasta que `n` es 0.
-
-
-Claro, la recursividad es un concepto muy importante y útil en la programación. Aquí te dejo una explicación más detallada con más ejemplos.
-
-## Recursividad en JavaScript
-
-### ¿Qué es la recursividad?
-
-La recursividad es una técnica en la que una función se llama a sí misma para resolver un problema. La función recursiva divide el problema en subproblemas más pequeños y los resuelve de manera recursiva.
 
 ### Componentes de una función recursiva
 
@@ -110,36 +100,9 @@ console.log(invertirCadena("hola")); // "aloh"
 - **Complejidad**: La recursividad puede hacer que el código sea más difícil de entender y depurar. Es importante asegurarse de que el caso base esté correctamente definido para evitar bucles infinitos.
 - **Profundidad de la pila**: Las funciones recursivas utilizan la pila de llamadas. Si la recursión es demasiado profunda, puede causar un desbordamiento de pila. Las iteraciones a menudo pueden ser una alternativa más segura para problemas que requieren muchas llamadas recursivas.
 
+---
 
-
-## Constructores
-
-### ¿Qué es un constructor?
-
-En JavaScript, un constructor es una función especial que se utiliza para crear y inicializar objetos cuando se utiliza con la palabra clave `new`.
-
-### Ejemplo Básico
-
-```javascript
-function Persona(nombre, edad) {
-    this.nombre = nombre;
-    this.edad = edad;
-}
-
-const persona1 = new Persona('Juan', 25);
-console.log(persona1.nombre); // Juan
-console.log(persona1.edad);   // 25
-```
-
-En este ejemplo, `Persona` es un constructor que inicializa los objetos con propiedades `nombre` y `edad`.
-
-
-
-----
-
-
-
-## Objetos
+## Objetos, Clases, Constructores y `this`
 
 ### ¿Qué es un objeto?
 
@@ -161,13 +124,30 @@ persona.saludar(); // Hola, mi nombre es Ana
 
 En este ejemplo, `persona` es un objeto con propiedades `nombre`, `edad` y un método `saludar`.
 
-## Clases
+### ¿Qué es un constructor?
+
+En JavaScript, un constructor es una función especial que se utiliza para crear y inicializar objetos cuando se utiliza con la palabra clave `new`.
+
+### Ejemplo Básico de Constructor
+
+```javascript
+function Persona(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+}
+
+const persona1 = new Persona('Juan', 25);
+console.log(persona1.nombre); // Juan
+console.log(persona1.edad);   // 25
+```
+
+En este ejemplo, `Persona` es un constructor que inicializa los objetos con propiedades `nombre` y `edad`.
 
 ### ¿Qué es una clase?
 
 En JavaScript, una clase es una plantilla para crear objetos. Una clase encapsula datos y funciones que operan sobre esos datos en una sola entidad.
 
-### Ejemplo Básico
+### Ejemplo Básico de Clase
 
 ```javascript
 class Persona {
@@ -187,13 +167,31 @@ persona1.saludar(); // Hola, mi nombre es Carlos
 
 En este ejemplo, `Persona` es una clase con un constructor y un método `saludar`.
 
-## Recorrer un Objeto con `for...in`
+### Uso de `this`
 
-### ¿Qué es `for...in`?
+En JavaScript, `this` es una palabra clave que se refiere al objeto actual en el contexto de ejecución. En una función de objeto, `this` se refiere al objeto al que pertenece la función.
+
+#### Ejemplo Básico de `this`
+
+```javascript
+const persona = {
+    nombre: 'Lucía',
+    edad: 32,
+    saludar: function() {
+        console.log('Hola, mi nombre es ' + this.nombre);
+    }
+};
+
+persona.saludar(); // Hola, mi nombre es Lucía
+```
+
+### Recorrer un Objeto con `for...in`
+
+#### ¿Qué es `for...in`?
 
 El bucle `for...in` itera sobre todas las propiedades enumerables de un objeto.
 
-### Ejemplo Básico
+#### Ejemplo Básico
 
 ```javascript
 const persona = {
@@ -217,7 +215,7 @@ En este ejemplo, el bucle `for...in` recorre todas las propiedades del objeto `p
 
 El operador `in` se utiliza para verificar si una propiedad existe en un objeto.
 
-### Ejemplo Básico
+#### Ejemplo Básico
 
 ```javascript
 const persona = {
@@ -231,10 +229,61 @@ console.log('profesion' in persona); // false
 
 En este ejemplo, el operador `in` verifica si las propiedades `nombre` y `profesion` existen en el objeto `persona`.
 
+## Ejemplos Prácticos
 
+### Crear un Objeto Usando un Constructor
 
+```javascript
+function Animal(tipo, sonido) {
+    this.tipo = tipo;
+    this.sonido = sonido;
+}
 
+const perro = new Animal('Perro', 'Ladrido');
+console.log(perro.tipo); // Perro
+console.log(perro.sonido); // Ladrido
+```
 
+### Definir Métodos en una Clase
+
+```javascript
+class Coche {
+    constructor(marca, modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    arrancar() {
+        console.log(this.marca + ' ' + this.modelo + ' está arrancando.');
+    }
+}
+
+const miCoche = new Coche('Toyota', 'Corolla');
+miCoche.arrancar(); // Toyota Corolla está arrancando.
+```
+
+### Herencia en Clases
+
+```javascript
+class Animal {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    hacerSonido() {
+        console.log(this.nombre + ' hace un sonido.');
+    }
+}
+
+class Perro extends Animal {
+    hacerSonido() {
+        console.log(this.nombre + ' ladra.');
+    }
+}
+
+const miPerro = new Perro('Rex');
+miPerro.hacerSonido(); // Rex ladra.
+```
 
 ---
 
