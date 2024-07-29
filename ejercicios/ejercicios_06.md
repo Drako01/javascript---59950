@@ -66,6 +66,8 @@
 50. Crear un array de números y usar un bucle `for` para encontrar la suma de los números en posiciones impares.
 
 
+
+
 ---
 
 ## [Autor: Alejandro Di Stefano](https://github.com/Drako01)
