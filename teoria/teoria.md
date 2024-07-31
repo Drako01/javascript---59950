@@ -86,6 +86,121 @@ persona1.saludar(); // "Hola, me llamo Alejandro y tengo 30 años."
 
 En resumen, las clases en JavaScript ofrecen una forma más moderna y clara de trabajar con la orientación a objetos, mientras que las funciones constructoras proporcionan una solución más antigua y compatible con versiones anteriores del lenguaje.
 
+
+----
+
+
+----
+
+<br><br>
+
+
+# Funciones de Orden Superior en JavaScript
+
+Una **función de orden superior** es una función que puede recibir otras funciones como argumentos o que puede retornar una función. Estas funciones son fundamentales en JavaScript y en la programación funcional, ya que permiten un estilo de programación más declarativo y conciso.
+
+#### Características de las Funciones de Orden Superior
+
+1. **Reciben funciones como argumentos**: Pueden tomar una o más funciones como parámetros.
+2. **Retornan funciones**: Pueden devolver una nueva función como resultado.
+
+### Ejemplos de Funciones de Orden Superior
+
+1. **`map`**:
+   - **Descripción**: Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original.
+   - **Ejemplo**:
+
+     ```javascript
+     const numbers = [1, 2, 3, 4, 5];
+     const doubled = numbers.map(function(number) {
+       return number * 2;
+     });
+
+     console.log(doubled); // [2, 4, 6, 8, 10]
+     ```
+
+2. **`filter`**:
+   - **Descripción**: Crea un nuevo array con todos los elementos que pasen la prueba implementada por la función dada.
+   - **Ejemplo**:
+
+     ```javascript
+     const numbers = [1, 2, 3, 4, 5];
+     const even = numbers.filter(function(number) {
+       return number % 2 === 0;
+     });
+
+     console.log(even); // [2, 4]
+     ```
+
+3. **`reduce`**:
+   - **Descripción**: Aplica una función a un acumulador y a cada valor de un array (de izquierda a derecha) para reducirlo a un único valor.
+   - **Ejemplo**:
+
+     ```javascript
+     const numbers = [1, 2, 3, 4, 5];
+     const sum = numbers.reduce(function(total, number) {
+       return total + number;
+     }, 0);
+
+     console.log(sum); // 15
+     ```
+
+4. **`forEach`**:
+   - **Descripción**: Ejecuta una función dada una vez por cada elemento del array.
+   - **Ejemplo**:
+
+     ```javascript
+     const numbers = [1, 2, 3, 4, 5];
+     numbers.forEach(function(number) {
+       console.log(number);
+     });
+
+     // Output:
+     // 1
+     // 2
+     // 3
+     // 4
+     // 5
+     ```
+
+5. **`sort`**:
+   - **Descripción**: Ordena los elementos de un array in situ y devuelve el array.
+   - **Ejemplo**:
+
+     ```javascript
+     const numbers = [5, 3, 8, 1, 2];
+     numbers.sort(function(a, b) {
+       return a - b; // Orden ascendente
+     });
+
+     console.log(numbers); // [1, 2, 3, 5, 8]
+     ```
+
+### Ejemplo Adicional: Función que Retorna Otra Función
+
+Una función de orden superior también puede retornar otra función.
+
+```javascript
+function createMultiplier(multiplier) {
+  return function(number) {
+    return number * multiplier;
+  };
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
+```
+
+### Conclusión
+
+Las funciones de orden superior son una herramienta poderosa en JavaScript. Permiten escribir código más limpio, reutilizable y declarativo. Al entender y utilizar estas funciones, tus alumnos podrán manejar mejor la manipulación de arrays y otros datos de manera eficiente.
+
+
+
+
 ---
 
 ## [Autor: Alejandro Di Stefano](https://github.com/Drako01)
