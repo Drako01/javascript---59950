@@ -1,153 +1,90 @@
-# Teoría de la Clase 06
+#  ¿Cuál es la diferencia real entre crear objetos usando function o usando clases? 
 
-### Arrays en JavaScript
 
-Los arrays en JavaScript son estructuras de datos que permiten almacenar múltiples valores en una sola variable. Los elementos en un array pueden ser accedidos por su índice, que comienza en 0. A continuación, se presentan los métodos y propiedades más comunes para trabajar con arrays, junto con ejemplos de cómo usarlos.
+En JavaScript, tanto las funciones constructoras (`function`) como las clases (`class`) se utilizan para crear objetos y manejar la orientación a objetos. Sin embargo, hay diferencias importantes entre ambos enfoques. Aquí se presentan las diferencias clave y las razones para elegir uno sobre el otro.
 
-### Propiedades y Métodos de Arrays
+### Funciones Constructoras
 
-#### 1. `length`
-La propiedad `length` devuelve el número de elementos en un array.
+**Sintaxis y Uso:**
 
-**Ejemplo:**
+Las funciones constructoras son funciones regulares que se utilizan para crear objetos. Se les suele poner un nombre con mayúscula inicial para diferenciarlas de las funciones normales.
+
 ```javascript
-let arr = [1, 2, 3, 4];
-console.log(arr.length); // 4
-```
-
-#### 2. `push()`
-El método `push()` añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-arr.push(4);
-console.log(arr); // [1, 2, 3, 4]
-```
-
-#### 3. `unshift()`
-El método `unshift()` añade uno o más elementos al principio de un array y devuelve la nueva longitud del array.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-arr.unshift(0);
-console.log(arr); // [0, 1, 2, 3]
-```
-
-#### 4. `shift()`
-El método `shift()` elimina el primer elemento de un array y devuelve ese elemento. Este método cambia la longitud del array.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-let firstElement = arr.shift();
-console.log(arr); // [2, 3]
-console.log(firstElement); // 1
-```
-
-#### 5. `pop()`
-El método `pop()` elimina el último elemento de un array y devuelve ese elemento. Este método cambia la longitud del array.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-let lastElement = arr.pop();
-console.log(arr); // [1, 2]
-console.log(lastElement); // 3
-```
-
-#### 6. `reverse()`
-El método `reverse()` invierte el orden de los elementos en un array. El primer elemento se convierte en el último y el último en el primero.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-arr.reverse();
-console.log(arr); // [3, 2, 1]
-```
-
-#### 7. `join()`
-El método `join()` une todos los elementos de un array en una cadena y los separa con un separador especificado.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-let str = arr.join('-');
-console.log(str); // "1-2-3"
-```
-
-#### 8. `concat()`
-El método `concat()` se usa para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.
-
-**Ejemplo:**
-```javascript
-let arr1 = [1, 2];
-let arr2 = [3, 4];
-let arr3 = arr1.concat(arr2);
-console.log(arr3); // [1, 2, 3, 4]
-```
-
-#### 9. `slice()`
-El método `slice()` devuelve una copia superficial de una parte de un array en un nuevo array, sin modificar el array original.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3, 4];
-let slicedArr = arr.slice(1, 3);
-console.log(slicedArr); // [2, 3]
-```
-
-#### 10. `splice()`
-El método `splice()` cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3, 4];
-arr.splice(1, 2, 'a', 'b');
-console.log(arr); // [1, 'a', 'b', 4]
-```
-
-#### 11. `indexOf()`
-El método `indexOf()` devuelve el primer índice en el que se puede encontrar un elemento dado en el array, o -1 si el elemento no está presente.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-let index = arr.indexOf(2);
-console.log(index); // 1
-```
-
-#### 12. `includes()`
-El método `includes()` determina si un array incluye un determinado elemento, devolviendo true o false según corresponda.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-let hasTwo = arr.includes(2);
-console.log(hasTwo); // true
-```
-
-### Sentencia `for...of`
-
-La sentencia `for...of` permite recorrer objetos iterables (incluidos arrays) de manera fácil y directa.
-
-**Ejemplo:**
-```javascript
-let arr = [1, 2, 3];
-for (let value of arr) {
-    console.log(value);
+function Persona(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
 }
-// 1
-// 2
-// 3
+
+Persona.prototype.saludar = function() {
+    console.log(`Hola, me llamo ${this.nombre} y tengo ${this.edad} años.`);
+};
+
+const persona1 = new Persona('Alejandro', 30);
+persona1.saludar(); // "Hola, me llamo Alejandro y tengo 30 años."
 ```
 
+**Características:**
 
-### Material de Referencia
+1. **Prototipo:** Las funciones constructoras utilizan prototipos para compartir métodos entre instancias.
+2. **Herencia:** La herencia se logra mediante la manipulación del prototipo, lo cual puede ser más complejo que con clases.
 
+### Clases
 
-[documentación de MDN sobre arrays](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array) 
+**Sintaxis y Uso:**
+
+Las clases fueron introducidas en ECMAScript 6 (ES6) y proporcionan una sintaxis más clara y moderna para la creación de objetos y la herencia.
+
+```javascript
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    saludar() {
+        console.log(`Hola, me llamo ${this.nombre} y tengo ${this.edad} años.`);
+    }
+}
+
+const persona1 = new Persona('Alejandro', 30);
+persona1.saludar(); // "Hola, me llamo Alejandro y tengo 30 años."
+```
+
+**Características:**
+
+1. **Sintaxis Clara:** La sintaxis de las clases es más clara y concisa que la de las funciones constructoras, lo que mejora la legibilidad del código.
+2. **Métodos estáticos:** Las clases permiten definir métodos estáticos que no están vinculados a instancias particulares.
+3. **Herencia:** La herencia en clases es más simple y directa usando las palabras clave `extends` y `super`.
+
+### Diferencias y Comparaciones
+
+1. **Claridad y Sintaxis:**
+   - **Clases:** Proporcionan una sintaxis más clara y estructurada para definir objetos y herencia.
+   - **Funciones Constructoras:** Pueden ser más verbosas y menos intuitivas, especialmente para desarrolladores que provienen de otros lenguajes orientados a objetos.
+
+2. **Herencia:**
+   - **Clases:** Facilitan la herencia con una sintaxis sencilla (`extends` y `super`).
+   - **Funciones Constructoras:** La herencia requiere manipulación explícita del prototipo, lo que puede ser más complicado y propenso a errores.
+
+3. **Métodos y Propiedades:**
+   - **Clases:** Los métodos definidos dentro de la clase son no-enumerables, lo que significa que no aparecerán en bucles `for...in`.
+   - **Funciones Constructoras:** Los métodos definidos en el prototipo son enumerables, lo que significa que aparecerán en bucles `for...in`.
+
+4. **Compatibilidad:**
+   - **Funciones Constructoras:** Son compatibles con todas las versiones de JavaScript.
+   - **Clases:** Requieren ES6, por lo que en entornos muy antiguos podrían no estar disponibles sin un transpilador como Babel.
+
+### ¿Cuál Usar?
+
+- **Usar Clases:**
+  - Cuando se busca una sintaxis más moderna, clara y similar a otros lenguajes orientados a objetos.
+  - Para aprovechar la herencia simplificada y los métodos estáticos.
+
+- **Usar Funciones Constructoras:**
+  - En entornos donde ES6 no está disponible o no se puede usar.
+  - Cuando se necesita compatibilidad con código y bibliotecas antiguas.
+
+En resumen, las clases en JavaScript ofrecen una forma más moderna y clara de trabajar con la orientación a objetos, mientras que las funciones constructoras proporcionan una solución más antigua y compatible con versiones anteriores del lenguaje.
 
 ---
 
