@@ -138,9 +138,9 @@
 // console.log(dobles);
 
 // Metodo reduce
-const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // const resultado = numeros.reduce((acumulador, elemento) => acumulador + elemento , 0);
 // console.log(resultado);
 
-console.log(numeros.sort((a, b) => a - b));
-console.log(numeros.sort((a, b) => b - a));
+// console.log(numeros.sort((a, b) => a - b));
+// console.log(numeros.sort((a, b) => b - a));
