@@ -176,6 +176,58 @@ Una **función de orden superior** es una función que puede recibir otras funci
      console.log(numbers); // [1, 2, 3, 5, 8]
      ```
 
+El método `sort` se utiliza para ordenar los elementos de un array. De manera predeterminada, el método `sort` convierte los elementos a cadenas y los ordena según su valor Unicode, lo cual puede no ser útil para ordenar números. Por eso, generalmente, se le pasa una función de comparación que define el criterio de ordenación.
+
+### Función de comparación
+
+La función de comparación recibe dos argumentos (digamos `a` y `b`) y debe devolver un valor numérico que determina el orden relativo de `a` y `b`:
+- Si la función devuelve un valor **negativo**, `a` se ordena antes que `b`.
+- Si la función devuelve **cero**, `a` y `b` se consideran iguales en términos de orden.
+- Si la función devuelve un valor **positivo**, `a` se ordena después que `b`.
+
+### Ejemplos
+
+#### Orden ascendente `(a, b) => a - b`
+```javascript
+numeros.sort((a, b) => a - b);
+```
+Aquí, `a` y `b` son dos elementos del array. La expresión `a - b` devolverá:
+- Un número negativo si `a` es menor que `b` (por lo tanto, `a` debe venir antes que `b`).
+- Cero si `a` es igual a `b`.
+- Un número positivo si `a` es mayor que `b` (por lo tanto, `a` debe venir después de `b`).
+
+Por ejemplo:
+- Para `a = 3` y `b = 5`, `a - b` es `-2`, por lo que `3` se ordena antes que `5`.
+- Para `a = 7` y `b = 2`, `a - b` es `5`, por lo que `7` se ordena después que `2`.
+
+Esto hace que el array se ordene de menor a mayor.
+
+#### Orden descendente `(a, b) => b - a`
+```javascript
+numeros.sort((a, b) => b - a);
+```
+Aquí, la expresión `b - a` devolverá:
+- Un número negativo si `b` es menor que `a` (por lo tanto, `b` debe venir antes que `a`).
+- Cero si `b` es igual a `a`.
+- Un número positivo si `b` es mayor que `a` (por lo tanto, `b` debe venir después de `a`).
+
+Por ejemplo:
+- Para `a = 3` y `b = 5`, `b - a` es `2`, por lo que `5` se ordena antes que `3`.
+- Para `a = 7` y `b = 2`, `b - a` es `-5`, por lo que `2` se ordena después que `7`.
+
+Esto hace que el array se ordene de mayor a menor.
+
+### Ejemplo en código
+
+```javascript
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(numeros.sort((a, b) => a - b)); // Orden ascendente: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(numeros.sort((a, b) => b - a)); // Orden descendente: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+En resumen, `(a, b) => a - b` ordena los números de menor a mayor, y `(a, b) => b - a` ordena los números de mayor a menor.
+
 ### Ejemplo Adicional: Función que Retorna Otra Función
 
 Una función de orden superior también puede retornar otra función.
