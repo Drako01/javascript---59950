@@ -1,74 +1,85 @@
-// Acceso a los Nodos
-// getElementById
-let titulo = document.getElementById("titulo").innerText;
-// getElementsByClassName()
-// console.log(document.getElementsByClassName("contenedor"));
-const contenedores = document.getElementsByClassName("contenedor");
-// console.log(contenedores);
-// console.log(contenedores[0]);
-// console.log(contenedores[1]);
-// console.log(contenedores[2]);
-// console.log(contenedores[3]);
-// console.log(titulo);
-// titulo = "Otra cosa"
-// console.log(titulo);
-
-// getElementsByTagName()
-const main = document.getElementsByTagName("main");
-// console.log(main[0]);
-const secciones = document.getElementsByTagName("section");
-// console.log(secciones[0].innerHTML);
-secciones[2].innerHTML = "<h2>Esta es la Seccion <strong>3</strong></h2>" // Agrego contenido de forma Dinamica
-// for (const seccion of secciones){
-//     console.log(seccion.innerHTML);
-// }
-let divAModificar = document.getElementById("parrafo");
-const parrafo = document.createElement("p"); // Creamos un Elemento p
-parrafo.innerHTML = "Esto es un Párrafo creado dinamicamente.!"
-// console.log(parrafoAModificar);
-divAModificar.append(parrafo);
-let inputNombre = document.createElement("input");
-let inputEdad = document.createElement("input");
-// parrafo.remove();
-// main[0].remove();
-divAModificar.appendChild(inputNombre);
-divAModificar.appendChild(inputEdad);
-inputNombre.id = "nombre";
-inputEdad.id = "edad";
-inputNombre.value = "Alejandro";
-inputEdad.value = 48;
+const cuerpo = document.body;
+const boton1 = document.querySelector('#eventoUno');
+const boton2 = document.querySelector('#eventoDos');
+const parrafoSpan = document.querySelector('#parrafoSpan');
+const parrafoCompleto = document.querySelector('#parrafoCompleto');
+const imagen = document.querySelector('#coder');
 
 
-const padre = document.getElementById("padre");
-const personas = ["Alejandro", "Sharon", "Carla", "David", "Roberto", "Kevin"];
+// elemento.addEventListener("Tipo de Evento", la Funcion);
 
-for (const persona of personas){
-    let li = document.createElement("li");
-    li.innerHTML = persona;
-    padre.appendChild(li);
+boton1.addEventListener("click", () => {
+    cuerpo.style.backgroundColor = "violet";
+})
+
+boton2.onclick = () => { cuerpo.style.backgroundColor = "white" };
+
+parrafoSpan.addEventListener("mouseover", () => {
+    parrafoCompleto.style.color = 'red';
+})
+
+// imagen.addEventListener("mouseover", () => {
+//     imagen.style.width = "110%";
+// })
+
+
+
+const nombreProducto = document.querySelector('#nombreProducto');
+const nombrePersona = document.querySelector('#nombrePersona');
+
+
+
+nombreProducto.onchange = () => {
+    console.log("Cambiando el Valor del Input: " + nombreProducto.value);
 }
 
-// Plantillas Literales
-let producto = {id: 1, nombre: "Azucar", precio: 1080.50};
-let concatenando = "ID = " + producto.id + " nombre del Producto es: "
-+ producto.nombre + " y su precio es de $ " + producto.precio
-// console.log(concatenando);
+nombrePersona.addEventListener('input', () => {
+    console.log(nombrePersona.value);
+})
 
-let plantilla = `Id : ${producto.id} nombre del Producto es: ${producto.nombre} y su precio es de $ ${producto.precio}`;
-// console.log(plantilla);
-const container = document.createElement("div");
-const miMain = document.getElementById("miMain");
-container.innerHTML = `
-                        <h3>ID: ${producto.id}</h3>
-                        <p>Nombre del Producto: ${producto.nombre}</p>
-                        <h4>Precio $${producto.precio}</h4>
-                        `
-miMain.appendChild(container);
+// Evento Submmit
+let formulario = document.querySelector('#formulario');
 
-// querySelector > Selecciona 1 solo elemento
-// querySelectorAll > Selecciona todos los elementos 
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // console.log("Formulario enviado")
+    let form = e.target;
+    console.log(form.children[0].value);
+    console.log(form.children[1].value);
 
-const tituloH1 = document.querySelector("#titulo");
-console.log(tituloH1.innerHTML);
-const contenedoresDiv = document.querySelectorAll(".contenedor");
-console.log(contenedoresDiv);
+    document.getElementById('nombre').innerHTML = form.children[0].value;
+    document.getElementById('edad').innerHTML = form.children[1].value;
+    document.getElementById('email').innerHTML = form.children[2].value;
+
+})
+
+const header = document.querySelector('#header');
+const navegacion = document.createElement('div');
+const nav = document.createElement('nav');
+const ul = document.createElement('ul');
+
+const enlaces = [
+    {
+        link: "index",
+        nombre: "Inicio"
+    },
+    {
+        link: "products",
+        nombre: "Productos"
+    },
+    {
+        link: "contact",
+        nombre: "Contacto"
+    }    
+]
+
+header.appendChild(navegacion);
+navegacion.appendChild(nav);
+nav.appendChild(ul);
+navegacion.className = "navbar";
+
+for (const link of enlaces) {
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="${link.link}.html">${link.nombre}</a>`;
+    ul.appendChild(li);
+}

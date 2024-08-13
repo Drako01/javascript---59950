@@ -9,29 +9,40 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
     </header>
 
     <main id="miMain">
         <h1 id="titulo">Comision #59950</h1>
-        <div class="contenedor">
-            <h4>Contenedor 1</h4>
+        <div class="botonera">
+            <input class="button_grey" id="eventoUno" type="button" value="Evento 1">
+            <input class="button_grey" id="eventoDos" type="button" value="Evento 2">
+            <input class="button_grey" id="eventoTres" type="button" value="Evento 3" onclick="cambiarColorDeFondo()">
         </div>
-        <div class="contenedor">
-            <h4>Contenedor 2</h4>
+        <div>
+            <p id="parrafoCompleto">
+                Lorem ipsum dolor sit amet, <span id="parrafoSpan">consectetur</span> adipisicing elit. Laudantium inventore, voluptas ad animi
+                deserunt provident sit cum alias. Placeat minus tenetur aliquid odio, facilis obcaecati cupiditate optio
+                nesciunt repellendus ut.
+            </p>
         </div>
-        <div class="contenedor">
-            <h4>Contenedor 3</h4>
+        <div>
+            <!-- <img src="/img/logo.png" alt="Logo" id="coder"> -->
         </div>
-        <div class="contenedor">
-            <h4>Contenedor 4</h4>
-        </div>
+        <input type="text" name="" id="nombreProducto">
+        <input type="text" name="" id="nombrePersona">
 
-        <section>Seccion 1</section>
-        <section><h4>Seccion 2</h4></section>
-        <section></section>
-        <div id="parrafo"></div>
-        <ul id="padre"></ul>
+        <form id="formulario">
+            <input type="text">
+            <input type="number">
+            <input type="email">
+            <input type="submit" value="Send" class="button_grey" >
+        </form>
+        <div>
+            <h4 id="nombre"></h4>
+            <h4 id="edad"></h4>
+            <h4 id="email"></h4>
+        </div>
     </main>
 
     <footer>
@@ -39,6 +50,13 @@
     </footer>
     <!-- Acá van los Scripts -->
     <script src="js/index.js"></script>
+    <script>
+
+        function cambiarColorDeFondo() {
+            document.body.style.backgroundColor = 'black';
+            document.getElementById('titulo').style.color = 'white';
+        }
+    </script>
     <!-- Acá van los Scripts -->
 </body>
 
