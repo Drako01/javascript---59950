@@ -29,8 +29,8 @@
         <div>
             <!-- <img src="/img/logo.png" alt="Logo" id="coder"> -->
         </div>
-        <input type="text" name="" id="nombreProducto">
-        <input type="text" name="" id="nombrePersona">
+        <!-- <input type="text" name="" id="nombreProducto">
+        <input type="text" name="" id="nombrePersona"> -->
 
         <form id="formulario">
             <input type="text">
@@ -42,7 +42,18 @@
             <h4 id="nombre"></h4>
             <h4 id="edad"></h4>
             <h4 id="email"></h4>
+            <button id="borrarNombre">Nombre X</button>
+            <button id="borrarEdad">Edad X</button>
+            <button id="borrarEmail">Email X</button>
         </div>
+        <div>
+            <h4 id="nombreProducto"></h4>
+            <h4 id="precio"></h4>
+            <h4 id="stock"></h4>            
+        </div>
+        <button class="button_grey" id="clearLS">
+            Borrar Local Storage
+        </button>
     </main>
 
     <footer>
@@ -50,6 +61,7 @@
     </footer>
     <!-- Acá van los Scripts -->
     <script src="js/index.js"></script>
+    <script src="js/storage.js"></script>
     <script>
 
         function cambiarColorDeFondo() {

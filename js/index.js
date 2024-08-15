@@ -37,21 +37,6 @@ nombrePersona.addEventListener('input', () => {
     console.log(nombrePersona.value);
 })
 
-// Evento Submmit
-let formulario = document.querySelector('#formulario');
-
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // console.log("Formulario enviado")
-    let form = e.target;
-    console.log(form.children[0].value);
-    console.log(form.children[1].value);
-
-    document.getElementById('nombre').innerHTML = form.children[0].value;
-    document.getElementById('edad').innerHTML = form.children[1].value;
-    document.getElementById('email').innerHTML = form.children[2].value;
-
-})
 
 const header = document.querySelector('#header');
 const navegacion = document.createElement('div');
