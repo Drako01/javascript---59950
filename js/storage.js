@@ -45,15 +45,21 @@ clearLS.addEventListener("click", () => {
 const borrarNombre = document.getElementById("borrarNombre");
 const borrarEdad = document.getElementById("borrarEdad");
 const borrarEmail = document.getElementById("borrarEmail");
+borrarNombre.className = 'button_grey'
+borrarEdad.className = 'button_grey'
+borrarEmail.className = 'button_grey'
 
 borrarNombre.addEventListener("click", () => {
     localStorage.removeItem("nombre");
+    location.reload();
 })
 borrarEdad.addEventListener("click", () => {
     localStorage.removeItem("edad");
+    location.reload();
 })
 borrarEmail.addEventListener("click", () => {
     localStorage.removeItem("email");
+    location.reload();
 })
 
 // const producto = {
