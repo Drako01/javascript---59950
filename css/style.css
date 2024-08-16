@@ -10,13 +10,12 @@ footer,
 }
 
 footer,
-.navbar {
+.navbar nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
 }
-
 .navbar nav ul {
     display: flex;
     justify-content: flex-start;
@@ -33,7 +32,7 @@ footer,
 .navbar nav ul li a {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: black;
     margin-left: 1rem;
 }
@@ -104,7 +103,7 @@ body {
 }
 
 body.dark-mode {
-    background-color: black;
+    background-color: #1c1c1c;
     color: white;
 }
 
