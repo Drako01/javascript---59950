@@ -40,6 +40,7 @@ const clearLS = document.getElementById("clearLS");
 clearLS.addEventListener("click", () => {
     localStorage.clear();
     sessionStorage.clear();
+    location.reload();
 })
 
 const borrarNombre = document.getElementById("borrarNombre");
