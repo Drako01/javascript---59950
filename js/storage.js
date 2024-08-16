@@ -105,7 +105,7 @@ const productos = [
 
 const carrito = [];
 
-const guardarEnElLocalStorage = (key, value) => { localStorage.setItem(key, value) };
+const guardarEnElLocalStorage = (key, value) =>  localStorage.setItem(key, value);
 
 // for (const producto of productos) {
 //     guardarEnElLocalStorage(producto.nombre, JSON.stringify(producto));
@@ -117,7 +117,7 @@ const guardarEnElLocalStorage = (key, value) => { localStorage.setItem(key, valu
 //     carrito.push(producto);
 // }
 
-carrito.push(productos[0]);
-carrito.push(productos[1]);
+// carrito.push(productos[0]);
+// carrito.push(productos[1]);
 
 guardarEnElLocalStorage("carrito", JSON.stringify(carrito));
