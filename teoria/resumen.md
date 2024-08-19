@@ -48,6 +48,9 @@ console.log(displayName); // "Invitado"
 - Es muy útil para proporcionar valores predeterminados cuando se espera que una variable pueda ser `null` o `undefined`.
 - Facilita la gestión de valores opcionales sin tener que realizar múltiples verificaciones.
 
+
+# Desestructuración
+
 ### Desestructuración de Parámetros
 La desestructuración de parámetros en JavaScript permite extraer valores de objetos o arrays directamente dentro de la firma de una función. Es una forma conveniente de asignar valores a variables sin tener que acceder a ellos manualmente.
 
@@ -73,7 +76,7 @@ function mostrarInfo({ nombre = "Invitado", edad = 18 }) {
 
 mostrarInfo({}); // "Nombre: Invitado, Edad: 18"
 ```
-# Desestructuración
+
 
 ### Desestructuración de Arrays
 La desestructuración de arrays permite asignar elementos de un array a variables individuales de manera más sencilla.
