@@ -19,7 +19,6 @@ formulario.addEventListener("submit", (e) => {
     localStorage.setItem("email", emailStorage);
     localStorage.setItem("nacionalidad", nacionalidadStorage);
 
-    location.reload();
 })
 
 nombre.innerHTML = localStorage.getItem("nombre");
@@ -29,8 +28,8 @@ nacionalidadTexto.innerHTML = localStorage.getItem("nacionalidad");
 
 for (let i = 0; i < localStorage.length; i++) {
     let clave = localStorage.key(i);
-    // console.log("Clave: " + clave);
-    // console.log("Valor: " + localStorage.getItem(clave))
+    console.log("Clave: " + clave);
+    console.log("Valor: " + localStorage.getItem(clave))
 }
 
 
