@@ -35,28 +35,32 @@
         <input type="text" name="" id="nombrePersona"> -->
         <div class="formularioIndex">
             <form id="formulario">
-                <input type="text">
-                <input type="number">
-                <input type="email">
+                <input type="text" placeholder="Nombre">
+                <input type="number" placeholder="Edad">
+                <input type="email" placeholder="Email">
+                <select name="nacionalidad" id="nacionalidad">
+                    <option value="Argentino">Argentino</option>
+                    <option value="Uruguayo">Uruguayo</option>
+                    <option value="Chileno">Chileno</option>
+                    <option value="Mexicano">Mexicano</option>
+                </select>
                 <input type="submit" value="Send" class="button_grey">
             </form>
             <div>
                 <h4 id="nombre"></h4>
                 <h4 id="edad"></h4>
                 <h4 id="email"></h4>
+                <h4 id="nacionalidadTexto"></h4>
                 <button id="borrarNombre">Nombre X</button>
                 <button id="borrarEdad">Edad X</button>
                 <button id="borrarEmail">Email X</button>
-            </div>
-            <div>
-                <h4 id="nombreProducto"></h4>
-                <h4 id="precio"></h4>
-                <h4 id="stock"></h4>
+                <button id="borrarNacionalidad">Nacionalidad X</button>
             </div>
             <button class="button_grey" id="clearLS">
                 Borrar Local Storage
             </button>
         </div>
+        
     </main>
 
     <footer>

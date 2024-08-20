@@ -3,6 +3,7 @@ let formulario = document.querySelector('#formulario');
 let nombre = document.getElementById('nombre');
 let edad = document.getElementById('edad');
 let email = document.getElementById('email');
+let nacionalidadTexto = document.getElementById('nacionalidadTexto');
 
 formulario.addEventListener("submit", (e) => {
     // e.preventDefault();
@@ -11,16 +12,20 @@ formulario.addEventListener("submit", (e) => {
     const nombreStorage = form.children[0].value;
     const edadStorage = form.children[1].value;
     const emailStorage = form.children[2].value;
+    const nacionalidadStorage = form.children[3].value;
 
     localStorage.setItem("nombre", nombreStorage);
     localStorage.setItem("edad", edadStorage);
     localStorage.setItem("email", emailStorage);
+    localStorage.setItem("nacionalidad", nacionalidadStorage);
 
+    location.reload();
 })
 
 nombre.innerHTML = localStorage.getItem("nombre");
 edad.innerHTML = localStorage.getItem("edad");
 email.innerHTML = localStorage.getItem("email");
+nacionalidadTexto.innerHTML = localStorage.getItem("nacionalidad");
 
 for (let i = 0; i < localStorage.length; i++) {
     let clave = localStorage.key(i);
@@ -35,20 +40,16 @@ for (let i = 0; i < localStorage.length; i++) {
 // let carrito = localStorage.getItem("carrito");
 // console.log(carrito);
 
-const clearLS = document.getElementById("clearLS");
 
-clearLS.addEventListener("click", () => {
-    localStorage.clear();
-    sessionStorage.clear();
-    location.reload();
-})
 
 const borrarNombre = document.getElementById("borrarNombre");
 const borrarEdad = document.getElementById("borrarEdad");
 const borrarEmail = document.getElementById("borrarEmail");
-borrarNombre.className = 'button_grey'
-borrarEdad.className = 'button_grey'
-borrarEmail.className = 'button_grey'
+const borrarNacionalidad = document.getElementById("borrarNacionalidad");
+borrarNombre.className = 'button_grey';
+borrarEdad.className = 'button_grey';
+borrarEmail.className = 'button_grey';
+borrarNacionalidad.className = 'button_grey';
 
 borrarNombre.addEventListener("click", () => {
     localStorage.removeItem("nombre");
@@ -62,6 +63,19 @@ borrarEmail.addEventListener("click", () => {
     localStorage.removeItem("email");
     location.reload();
 })
+borrarNacionalidad.addEventListener("click", () => {
+    localStorage.removeItem("nacionalidad");
+    location.reload();
+});
+
+
+const clearLS = document.getElementById("clearLS");
+
+clearLS.addEventListener("click", () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    location.reload();
+});
 
 // const producto = {
 //     nombre: "Azucar",
