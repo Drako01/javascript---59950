@@ -36,9 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botonDark = document.getElementById('toggle-button');
     botonDark.className = 'button_grey';
 
-    if (modo === 'dark-mode') {
-        cuerpo.classList.add("dark-mode");
-    }
+    modo === 'dark-mode' && cuerpo.classList.add("dark-mode")
 
     botonDark.addEventListener("click", () => {
         cuerpo.classList.toggle("dark-mode");
@@ -56,11 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function setLocalStorageModeDark() {
-        if (cuerpo.classList.contains('dark-mode')) {
-            localStorage.setItem("Modo", "dark-mode");
-        } else {
-            localStorage.removeItem("Modo");
-        }
+        cuerpo.classList.contains('dark-mode') ?
+        localStorage.setItem("Modo", "dark-mode") :
+        localStorage.removeItem("Modo")
+
     }
     updateTextButton();
 })

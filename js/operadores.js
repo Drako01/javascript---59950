@@ -220,3 +220,16 @@ const productos = ["Azucar", "Yerba", "Café", "Pepsi"];
 const [,, b, c] = productos;
 console.log(b);
 console.log(c);
+
+
+// Operador Ternario > Cuaternario
+let numero = 1;
+// if (numero > 5) {
+//     console.log("Es mayor a 5");
+// } else if (numero == 5 ){
+//     console.log("Es igual a 5");
+// } else {
+//     console.log("Es menor a 5");
+// }
+
+numero > 5 ? console.log("Es mayor a 5") : numero == 5 ? console.log("Es igual a 5") : console.log("Es menor a 5");

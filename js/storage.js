@@ -50,22 +50,15 @@ borrarEdad.className = 'button_grey';
 borrarEmail.className = 'button_grey';
 borrarNacionalidad.className = 'button_grey';
 
-borrarNombre.addEventListener("click", () => {
-    localStorage.removeItem("nombre");
+function borrarItemYRecargar(key){
+    localStorage.removeItem(key);
     location.reload();
-})
-borrarEdad.addEventListener("click", () => {
-    localStorage.removeItem("edad");
-    location.reload();
-})
-borrarEmail.addEventListener("click", () => {
-    localStorage.removeItem("email");
-    location.reload();
-})
-borrarNacionalidad.addEventListener("click", () => {
-    localStorage.removeItem("nacionalidad");
-    location.reload();
-});
+}
+
+borrarNombre.addEventListener("click", () => borrarItemYRecargar("nombre"))
+borrarEdad.addEventListener("click", () => borrarItemYRecargar("edad"))
+borrarEmail.addEventListener("click", () => borrarItemYRecargar("email"))
+borrarNacionalidad.addEventListener("click", () => borrarItemYRecargar("nacionalidad"));
 
 
 const clearLS = document.getElementById("clearLS");

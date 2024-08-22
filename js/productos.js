@@ -1,3 +1,9 @@
+const productosBasicos = [
+    { id: 7, nombre: "Chivito", precio: 1800 },
+    { id: 8, nombre: "Coca Cola", precio: 1600 },
+    { id: 9, nombre: "Miel", precio: 2300 }
+]
+
 const productos = [
     { id: 1, nombre: "Azucar", precio: 1080 },
     { id: 2, nombre: "Yerba", precio: 1200 },
@@ -5,11 +11,12 @@ const productos = [
     { id: 4, nombre: "Miel", precio: 1800 },
     { id: 5, nombre: "Harina", precio: 800 },
     { id: 6, nombre: "Pepsi", precio: 2300 },
+    ...productosBasicos
 ]
 
 let carrito = [];
 
-
+console.log(productos);
 function addToCart(productoID) {
     const product = productos.find(p => p.id === productoID);
 

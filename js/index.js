@@ -8,15 +8,11 @@ const imagen = document.querySelector('#coder');
 
 // elemento.addEventListener("Tipo de Evento", la Funcion);
 
-boton1.addEventListener("click", () => {
-    cuerpo.style.backgroundColor = "violet";
-})
+boton1.addEventListener("click", () => cuerpo.style.backgroundColor = "violet")
 
-boton2.onclick = () => { cuerpo.style.backgroundColor = "white" };
+boton2.onclick = () => cuerpo.style.backgroundColor = "white";
 
-parrafoSpan.addEventListener("mouseover", () => {
-    parrafoCompleto.style.color = 'red';
-})
+parrafoSpan.addEventListener("mouseover", () => parrafoCompleto.style.color = 'red')
 
 // imagen.addEventListener("mouseover", () => {
 //     imagen.style.width = "110%";
