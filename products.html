@@ -5,28 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comision #59950</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+    </style>
 </head>
 
 <body>
     <header id="header">
     </header>
 
-    <main id="miMain">   
-        <button id="toggle-button">Cambiar a Modo Oscuro</button>    
+    <main id="miMain">
+        <button id="toggle-button">Cambiar a Modo Oscuro</button>
         <h1 id="titulo">Productos</h1>
         <div class="buscador">
             <input type="text" id="buscador-input" placeholder="Buscar productos...">
         </div>
         <div id="product-list"></div>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
+                <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
+                <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
+                <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
     </main>
 
-    <footer id="footer">       
+    <footer id="footer">
     </footer>
     <!-- Acá van los Scripts -->
     <script src="js/navegacion.js"></script>
-    <script src="js/footer.js"></script> 
-    <script src="js/productos.js"></script>   
+    <script src="js/footer.js"></script>
+    <script src="js/productos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
+        });
+    </script>
     <!-- Acá van los Scripts -->
 </body>
 
