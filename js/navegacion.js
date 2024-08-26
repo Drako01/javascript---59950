@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cuerpo.classList.contains('dark-mode') ?
         localStorage.setItem("Modo", "dark-mode") :
         localStorage.removeItem("Modo")
-
     }
     updateTextButton();
 })
