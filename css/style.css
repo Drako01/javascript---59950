@@ -266,7 +266,11 @@ body.dark-mode footer {
     margin-right: auto;
     gap: 1rem;
 }
-
+#formulario input,
+#formulario select {
+    height: 1.5rem;
+    padding: .1rem .5rem;
+}
 .formularioIndex button {
     width: 100%;
 }
