@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comision #59950</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,20 +13,34 @@
     <header id="header">
     </header>
 
-    <main id="miMain">   
-        <button id="toggle-button">Cambiar a Modo Oscuro</button>    
+    <main id="miMain">
+        <button id="toggle-button">Cambiar a Modo Oscuro</button>
         <h1 id="titulo">Contacto</h1>
-        
+        <div 
+            class="mapa"
+            data-aos="zoom-out-right"
+            data-aos-easing="linear"
+            data-aos-duration="3000"
+        >
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.099327145824!2d-58.37666972353093!3d-34.60164975739036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaccf4a5be6f%3A0x97ebb6aac5198f6c!2sCoderhouse!5e0!3m2!1ses-419!2sar!4v1724719910934!5m2!1ses-419!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </main>
 
-    <footer id="footer">       
+    <footer id="footer">
     </footer>
     <!-- Acá van los Scripts -->
-    <script src="js/navegacion.js"></script>  
-    <script src="js/footer.js"></script>  
+    <script src="js/navegacion.js"></script>
+    <script src="js/footer.js"></script>
     <script src="js/contact.js"></script>
     <!-- <script src="js/operadores.js"></script> -->
     <script src="js/operadores2.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <!-- Acá van los Scripts -->
 </body>
 

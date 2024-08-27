@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comision #59950</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
         
@@ -28,20 +30,23 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="/img/logo.png" alt="">
+                </div>
                 <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
                 <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
                 <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
                 <div class="swiper-slide"><img src="/img/logo.png" alt=""></div>
             </div>
             <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
 
             <!-- If we need scrollbar -->
-            <!-- <div class="swiper-scrollbar"></div> -->
+            <div class="swiper-scrollbar"></div>
         </div>
     </main>
 
@@ -51,7 +56,8 @@
     <script src="js/navegacion.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/productos.js"></script>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
@@ -71,9 +77,9 @@
             },
 
             // And if we need scrollbar
-            // scrollbar: {
-            //     el: '.swiper-scrollbar',
-            // },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
         });
     </script>
     <!-- Acá van los Scripts -->

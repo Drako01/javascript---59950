@@ -313,6 +313,8 @@ body.dark-mode footer {
 }
 
 
+/* Swiper */
+
 .swiper {
     width: 600px;
     height: 300px;
@@ -347,4 +349,23 @@ body.dark-mode main#miMain div.swiper .swiper-button-prev {
 
 .swiper-scrollbar-drag {
     background-color: #474747;
+}
+
+.swal2-default-outline{
+    background-color: #4325ba !important;
+}
+
+
+/* Swiper */
+
+
+/* .swal2-show{
+    background-color: #474747;
+} */
+
+.mapa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 4rem;
 }

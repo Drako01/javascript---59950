@@ -19,12 +19,25 @@ let carrito = [];
 console.log(productos);
 function addToCart(productoID) {
     const product = productos.find(p => p.id === productoID);
-
+    
     carrito.push({
         id: product.id,
         nombre: product.nombre,
         precio: product.precio
     })
+    // Swal.fire({
+    //     position: "top-end",
+    //     icon: "success",
+    //     title: `El ${product.nombre} se agrego al Carrito.!`,
+    //     showConfirmButton: false,
+    //     timer: 3000,
+    //     timerProgressBar: true
+    // });
+    Toastify({
+        text: `El ${product.nombre} se agrego al Carrito.!`,        
+        duration: 3000        
+        }).showToast();
+
     localStorage.setItem("Cart", JSON.stringify(carrito));
 }
 

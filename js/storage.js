@@ -50,8 +50,8 @@ borrarEdad.className = 'button_grey';
 borrarEmail.className = 'button_grey';
 borrarNacionalidad.className = 'button_grey';
 
-function borrarItemYRecargar(key){
-    localStorage.removeItem(key);
+function borrarItemYRecargar(key) {
+    localStorage.removeItem(key);    
     location.reload();
 }
 
@@ -66,7 +66,23 @@ const clearLS = document.getElementById("clearLS");
 clearLS.addEventListener("click", () => {
     localStorage.clear();
     sessionStorage.clear();
-    location.reload();
+    
+    Swal.fire({
+        title: "Estas seguro?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borremoslo!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Archivo borrado!",
+                icon: "success"
+            });            
+        }
+        location.reload();
+    });
 });
 
 // const producto = {
@@ -111,7 +127,7 @@ const productos = [
 
 const carrito = [];
 
-const guardarEnElLocalStorage = (key, value) =>  localStorage.setItem(key, value);
+const guardarEnElLocalStorage = (key, value) => localStorage.setItem(key, value);
 
 // for (const producto of productos) {
 //     guardarEnElLocalStorage(producto.nombre, JSON.stringify(producto));

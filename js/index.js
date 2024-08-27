@@ -10,7 +10,9 @@ const imagen = document.querySelector('#coder');
 
 boton1.addEventListener("click", () => cuerpo.style.backgroundColor = "violet")
 
-boton2.onclick = () => cuerpo.style.backgroundColor = "white";
+boton2.onclick = () => {
+    Swal.fire("Me hizo Click con SweetAlert");
+}
 
 parrafoSpan.addEventListener("mouseover", () => parrafoCompleto.style.color = 'red')
 
