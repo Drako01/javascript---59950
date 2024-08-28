@@ -34,7 +34,7 @@ function addToCart(productoID) {
     //     timerProgressBar: true
     // });
     Toastify({
-        text: `El ${product.nombre} se agrego al Carrito.!`,        
+        text: `Se agrego ${product.nombre} al Carrito.!`,        
         duration: 3000        
         }).showToast();
 
