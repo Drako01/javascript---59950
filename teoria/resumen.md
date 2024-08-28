@@ -1,126 +1,236 @@
-# Operadores lógicos
+# Clase 15
 
-### Operador Lógico `&&` (AND)
-El operador lógico `&&`, también conocido como **AND**, se utiliza para evaluar múltiples condiciones en una expresión. Devuelve `true` solo si todas las condiciones son verdaderas. Si alguna condición es falsa, el resultado será `false`.
+## **Programación Asíncrona en JavaScript**
 
-**Ejemplo**:
+La programación asíncrona permite que JavaScript realice tareas que pueden tardar algún tiempo (como obtener datos de un servidor) sin bloquear la ejecución de otros códigos. Esto es fundamental para que las aplicaciones web sean rápidas y receptivas. Vamos a desglosar los conceptos clave y las funciones relacionadas.
+
+---
+
+### **1. `setTimeout()`**
+**`setTimeout()`** es una función que retrasa la ejecución de un bloque de código durante un tiempo determinado en milisegundos.
+
+**Sintaxis:**
 ```javascript
-let a = 5;
-let b = 10;
-
-if (a > 0 && b > 0) {
-    console.log("Ambos números son positivos");
-}
-```
-**Aplicaciones**:
-- Se usa para asegurarse de que se cumplan varias condiciones antes de ejecutar un bloque de código.
-- Ideal para validar formularios donde varios campos deben cumplir con ciertos requisitos.
-
-### Operador Lógico `||` (OR)
-El operador lógico `||`, conocido como **OR**, se utiliza para evaluar múltiples condiciones, devolviendo `true` si al menos una de ellas es verdadera. Solo devuelve `false` si todas las condiciones son falsas.
-
-**Ejemplo**:
-```javascript
-let a = -5;
-let b = 10;
-
-if (a > 0 || b > 0) {
-    console.log("Al menos uno de los números es positivo");
-}
-```
-**Aplicaciones**:
-- Útil cuando necesitas que al menos una condición sea verdadera para continuar con una acción.
-- Se puede usar para establecer valores predeterminados cuando una opción no está disponible.
-
-### Operador Lógico `??` (Nullish Coalescing)
-El operador `??`, o **Nullish Coalescing**, es un operador que devuelve el valor de la derecha si el valor de la izquierda es `null` o `undefined`. Si el valor de la izquierda no es `null` ni `undefined`, devuelve ese valor.
-
-**Ejemplo**:
-```javascript
-let userName = null;
-let defaultName = "Invitado";
-
-let displayName = userName ?? defaultName;
-console.log(displayName); // "Invitado"
+setTimeout(funcionAEjecutar, retrasoEnMilisegundos);
 ```
 
-**Aplicaciones**:
-- Es muy útil para proporcionar valores predeterminados cuando se espera que una variable pueda ser `null` o `undefined`.
-- Facilita la gestión de valores opcionales sin tener que realizar múltiples verificaciones.
-
-
-# Desestructuración
-
-### Desestructuración de Parámetros
-La desestructuración de parámetros en JavaScript permite extraer valores de objetos o arrays directamente dentro de la firma de una función. Es una forma conveniente de asignar valores a variables sin tener que acceder a ellos manualmente.
-
-**Ejemplo con Objetos**:
+**Ejemplo:**
 ```javascript
-function mostrarInfo({ nombre, edad }) {
-    console.log(`Nombre: ${nombre}, Edad: ${edad}`);
+console.log("Hola");
+
+setTimeout(() => {
+    console.log("Este mensaje se retrasa 2 segundos");
+}, 2000);
+
+console.log("Mundo");
+```
+
+**Explicación:**
+- **Salida:** Primero se imprime "Hola", luego "Mundo", y después de 2 segundos, aparece el mensaje retrasado.
+- `setTimeout` no detiene la ejecución del código, solo programa la ejecución del bloque de código después del tiempo especificado.
+
+---
+
+### **2. Call Stack (Pila de Llamadas)**
+
+La **Call Stack** es una estructura de datos que sigue el principio LIFO (Last In, First Out). En JavaScript, es donde se almacenan las funciones que están en ejecución. Cuando llamas a una función, esta se apila en la Call Stack. Cuando la función termina, se elimina de la Call Stack.
+
+**Ejemplo:**
+```javascript
+function saludo() {
+    console.log("Hola");
 }
 
-let persona = { nombre: "Alejandro", edad: 30 };
-mostrarInfo(persona); // "Nombre: Alejandro, Edad: 30"
-```
-
-**Aplicaciones**:
-- Simplifica el acceso a las propiedades de un objeto dentro de una función.
-- Útil para funciones que reciben un objeto como argumento y necesitan trabajar con varias de sus propiedades.
-
-**Ejemplo con Valores Predeterminados**:
-```javascript
-function mostrarInfo({ nombre = "Invitado", edad = 18 }) {
-    console.log(`Nombre: ${nombre}, Edad: ${edad}`);
+function despedida() {
+    console.log("Adiós");
+    saludo();
 }
 
-mostrarInfo({}); // "Nombre: Invitado, Edad: 18"
+despedida();
 ```
 
+**Explicación:**
+- **Call Stack:** Primero se apila `despedida`, luego `saludo`, y después de ejecutar `saludo`, se elimina y vuelve a `despedida` hasta que también se elimina.
 
-### Desestructuración de Arrays
-La desestructuración de arrays permite asignar elementos de un array a variables individuales de manera más sencilla.
+---
 
-**Ejemplo**:
+### **3. Event Loop (Bucle de Eventos)**
+
+El **Event Loop** es el mecanismo que permite que JavaScript maneje operaciones asíncronas. Revisa continuamente la Call Stack y la **Callback Queue** (cola de llamadas) para ver si hay funciones listas para ejecutarse.
+
+**Cómo Funciona:**
+- Si la Call Stack está vacía, el Event Loop toma la primera función en la Callback Queue y la coloca en la Call Stack para ejecutarse.
+
+---
+
+### **4. Callback Queue (Cola de Llamadas)**
+
+La **Callback Queue** es una cola donde se colocan las funciones asíncronas que están listas para ejecutarse una vez que la Call Stack esté vacía.
+
+**Ejemplo con `setTimeout`:**
 ```javascript
-let colores = ["rojo", "verde", "azul"];
-let [primero, segundo, tercero] = colores;
+console.log("Inicio");
 
-console.log(primero);  // "rojo"
-console.log(segundo);  // "verde"
-console.log(tercero);  // "azul"
+setTimeout(() => {
+    console.log("Tarea Asíncrona");
+}, 0);
+
+console.log("Fin");
 ```
 
-**Aplicaciones**:
-- Ideal para extraer elementos de un array y asignarlos a variables rápidamente.
-- Se puede usar para intercambiar valores entre variables de manera eficiente.
+**Explicación:**
+- Aunque `setTimeout` tiene un retraso de 0 milisegundos, se coloca en la Callback Queue y se ejecutará solo cuando la Call Stack esté vacía, por eso "Inicio" y "Fin" se imprimen antes que "Tarea Asíncrona".
 
-**Ejemplo con Valores Predeterminados**:
+---
+
+### **5. `setInterval()`**
+**`setInterval()`** es una función que ejecuta un bloque de código repetidamente con un retraso fijo entre cada ejecución.
+
+**Sintaxis:**
 ```javascript
-let [a, b = 10] = [5];
-
-console.log(a); // 5
-console.log(b); // 10
+setInterval(funcionAEjecutar, intervaloEnMilisegundos);
 ```
 
-### Desestructuración con el Operador Rest (`...`)
-Puedes usar el operador `...` para capturar el resto de los elementos en un array o las propiedades restantes en un objeto.
-
-**Ejemplo con Arrays**:
+**Ejemplo:**
 ```javascript
-let [primero, ...resto] = [1, 2, 3, 4];
-console.log(primero); // 1
-console.log(resto);   // [2, 3, 4]
+setInterval(() => {
+    console.log("Este mensaje se muestra cada 3 segundos");
+}, 3000);
 ```
 
-**Ejemplo con Objetos**:
+**Explicación:**
+- El mensaje se imprimirá cada 3 segundos de manera indefinida hasta que se detenga con `clearInterval()`.
+
+---
+
+### **6. `clearTimeout()` y `clearInterval()`**
+**`clearTimeout()`** se utiliza para cancelar un `setTimeout` antes de que se ejecute.
+
+**Ejemplo:**
 ```javascript
-let { nombre, ...otros } = { nombre: "Alejandro", edad: 30, pais: "Argentina" };
-console.log(nombre); // "Alejandro"
-console.log(otros);  // { edad: 30, pais: "Argentina" }
+let temporizador = setTimeout(() => {
+    console.log("Esto no se verá nunca");
+}, 5000);
+
+clearTimeout(temporizador);
 ```
 
-**Aplicaciones**:
-- Muy útil para trabajar con partes de un array o las propiedades de un objeto mientras se ignoran otras.
-- Facilita la manipulación de estructuras de datos complejas al mantener el código limpio y legible.
+**Explicación:**
+- Aquí, el temporizador se cancela antes de que pase el tiempo, por lo que el mensaje nunca se imprimirá.
 
+**`clearInterval()`** funciona de manera similar para detener un `setInterval`.
+
+**Ejemplo:**
+```javascript
+let contador = setInterval(() => {
+    console.log("Esto se repetirá hasta que lo detengamos");
+}, 2000);
+
+setTimeout(() => {
+    clearInterval(contador);
+}, 10000); // Detiene después de 10 segundos
+```
+
+**Explicación:**
+- El intervalo se ejecutará cinco veces antes de ser detenido.
+
+---
+
+### **7. Promesas (Promises)**
+Una **Promesa** es un objeto que representa el eventual resultado de una operación asíncrona. Puede estar en uno de tres estados:
+
+- **Pendiente (Pending):** La operación aún no se ha completado.
+- **Resuelta (Fulfilled):** La operación se completó con éxito.
+- **Rechazada (Rejected):** La operación falló.
+
+**Sintaxis:**
+```javascript
+let promesa = new Promise((resolve, reject) => {
+    // operación asíncrona
+    if (todoBien) {
+        resolve("¡Éxito!");
+    } else {
+        reject("Hubo un error");
+    }
+});
+```
+
+---
+
+### **8. `resolve` y `reject`**
+Estas son funciones que se utilizan dentro de la promesa para cambiar su estado:
+
+- **`resolve(value):`** Cambia el estado de la promesa a "resuelta" con un valor.
+- **`reject(error):`** Cambia el estado de la promesa a "rechazada" con un error.
+
+**Ejemplo:**
+```javascript
+let promesa = new Promise((resolve, reject) => {
+    let exito = true;
+    if (exito) {
+        resolve("Operación exitosa");
+    } else {
+        reject("Operación fallida");
+    }
+});
+
+promesa
+    .then(resultado => console.log(resultado))
+    .catch(error => console.log(error));
+```
+
+**Explicación:**
+- Si `exito` es `true`, se llama a `resolve` y el mensaje de éxito se imprime. Si no, se llama a `reject` y se imprime el mensaje de error.
+
+---
+
+### **9. `then`, `catch`, y `finally`**
+
+- **`then(onFulfilled, onRejected):`** Se ejecuta cuando la promesa se resuelve exitosamente. Si también se pasa un segundo argumento, este se ejecuta si la promesa es rechazada.
+- **`catch(onRejected):`** Se ejecuta si la promesa es rechazada (es un atajo para `then(null, onRejected)`).
+- **`finally(onFinally):`** Se ejecuta independientemente de si la promesa fue resuelta o rechazada.
+
+**Ejemplo Completo:**
+```javascript
+let promesa = new Promise((resolve, reject) => {
+    let exito = true;
+    if (exito) {
+        resolve("Operación exitosa");
+    } else {
+        reject("Operación fallida");
+    }
+});
+
+promesa
+    .then(resultado => {
+        console.log(resultado);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log("Esto se ejecuta siempre, éxito o fallo.");
+    });
+```
+
+**Explicación:**
+- El `finally` se ejecuta al final sin importar si la promesa fue exitosa o no.
+
+
+---
+
+
+
+<p align="center"> 
+    <img src="https://jobs.coderhouse.com/assets/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
+</p>
+
+<p align="center"> 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Documentacion Oficial de JavaScript</a>
+</p>
+
+
+
+---
+
+## [Autor: Alejandro Di Stefano](https://github.com/Drako01)
