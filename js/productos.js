@@ -41,6 +41,10 @@ function addToCart(productoID) {
     localStorage.setItem("Cart", JSON.stringify(carrito));
 }
 
+document.getElementById("clear-cart").addEventListener('click', () => {
+    localStorage.removeItem("Cart")
+})
+
 document.addEventListener("DOMContentLoaded", function () {
     function renderizarProductos(productosFiltrados = productos) {
         const productList = document.getElementById('product-list');

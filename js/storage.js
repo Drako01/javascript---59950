@@ -142,4 +142,4 @@ const guardarEnElLocalStorage = (key, value) => localStorage.setItem(key, value)
 // carrito.push(productos[0]);
 // carrito.push(productos[1]);
 
-guardarEnElLocalStorage("carrito", JSON.stringify(carrito));
+// guardarEnElLocalStorage("carrito", JSON.stringify(carrito));
