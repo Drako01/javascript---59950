@@ -168,11 +168,20 @@ body.dark-mode footer {
 
 .botonera button {
     background-color: chocolate;
-    width: 6rem;
+    width: 10rem;
     border: none;
+    padding: 1rem;
     border-radius: .25rem;
     color: white;
     font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid chocolate;
+}
+
+.botonera button:hover{
+    background-color: white;    
+    color: chocolate;
+    border: 1px solid chocolate;
 }
 
 .slide {
