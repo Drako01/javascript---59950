@@ -77,7 +77,7 @@
 
 
 // Implementacion
-const productosPromesa = JSON.parse(localStorage.getItem("Cart"));
+const productosPromesa = JSON.parse(localStorage.getItem("Cart")) || [];
 
 // [
 //     {id: 1, nombre: "Azucar", precio: 1200},
@@ -90,6 +90,7 @@ const productosPromesa = JSON.parse(localStorage.getItem("Cart"));
 
 const mostrarProductos = () => {
     return new Promise((resolve, reject) => {
+        productosPromesa &&
         setTimeout(() => {
             resolve(productosPromesa)
         }, 2000)
@@ -120,8 +121,12 @@ mostrarProductos()
         renderizarProductos(arrayProductos);
     })
     .catch((error) => {
-        // console.error("Promesa Rechazada", error);
-        Swal.fire("Promesa Rechazada", "error")
+        // console.error("Promesa Rechazada", error);        
+        Swal.fire({
+                title: "Promesa Rechazada",
+                text: "El Carrito esta Vacio.!!",
+                icon: "error"
+            });
     })
     .finally(() => {
         console.log("Fin del Renderizado");
