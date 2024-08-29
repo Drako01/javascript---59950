@@ -90,12 +90,23 @@ const productosPromesa = JSON.parse(localStorage.getItem("Cart")) || [];
 
 const mostrarProductos = () => {
     return new Promise((resolve, reject) => {
-        productosPromesa &&
-        setTimeout(() => {
-            resolve(productosPromesa)
-        }, 2000)
-    })
+        if (productosPromesa.length > 0) {
+            setTimeout(() => {
+                resolve(productosPromesa);
+            }, 2000);
+        } else {
+            reject(
+                Swal.fire({
+                    title: "Promesa Rechazada",
+                    text: "El Carrito esta Vacio.!!",
+                    icon: "error"
+                })
+            );
+        }
+    });
 }
+
+
 
 let arrayProductos = [];
 
@@ -121,12 +132,7 @@ mostrarProductos()
         renderizarProductos(arrayProductos);
     })
     .catch((error) => {
-        // console.error("Promesa Rechazada", error);        
-        Swal.fire({
-                title: "Promesa Rechazada",
-                text: "El Carrito esta Vacio.!!",
-                icon: "error"
-            });
+        console.error("Promesa Rechazada", error);
     })
     .finally(() => {
         console.log("Fin del Renderizado");

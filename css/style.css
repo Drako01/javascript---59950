@@ -120,7 +120,8 @@ body.dark-mode footer {
 }
 
 #cart,
-#product-list {
+#product-list,
+#productos-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
