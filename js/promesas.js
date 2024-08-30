@@ -97,8 +97,8 @@ const mostrarProductos = () => {
         } else {
             reject(
                 Swal.fire({
-                    title: "Promesa Rechazada",
-                    text: "El Carrito esta Vacio.!!",
+                    title: "Carrito Vacio",
+                    text: "Realice una Compra",
                     icon: "error"
                 })
             );

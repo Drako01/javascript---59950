@@ -62,11 +62,11 @@ borrarNacionalidad.addEventListener("click", () => borrarItemYRecargar("nacional
 
 
 const clearLS = document.getElementById("clearLS");
-
+clearLS.style.color = "red";
+clearLS.style.fontSize = "1.1rem";
+clearLS.style.padding = "0.5rem";
+clearLS.style.height = "3rem";
 clearLS.addEventListener("click", () => {
-    localStorage.clear();
-    sessionStorage.clear();
-    
     Swal.fire({
         title: "Estas seguro?",
         icon: "warning",
@@ -81,6 +81,8 @@ clearLS.addEventListener("click", () => {
                 icon: "success"
             });            
         }
+        localStorage.clear();
+        sessionStorage.clear();
         location.reload();
     });
 });

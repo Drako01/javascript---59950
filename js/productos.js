@@ -42,7 +42,24 @@ function addToCart(productoID) {
 }
 
 document.getElementById("clear-cart").addEventListener('click', () => {
-    localStorage.removeItem("Cart")
+    
+    Swal.fire({
+        title: "Estas seguro de Vaciar el Carrito?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borremoslo!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Carrito Vacio!",
+                icon: "success"
+            });            
+        }
+        localStorage.removeItem("Cart");
+        location.reload();
+    });
 })
 
 document.addEventListener("DOMContentLoaded", function () {
