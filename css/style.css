@@ -160,7 +160,11 @@ body.dark-mode footer {
     border: 1px solid #c2c2c2;
 }
 
-
+#titulo-bienvenida{
+    display: flex;   
+    align-items: center;
+    gap: 1rem;
+}
 .botonera {
     display: flex;
     justify-content: space-evenly;

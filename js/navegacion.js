@@ -97,7 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //Verificar si hay un Usuario Activo
     if (localStorage.getItem("sesionActiva")) {
         const sesionActiva = JSON.parse(localStorage.getItem("sesionActiva"));
-        titulo.textContent = `Bienvenido ${sesionActiva.nombre}`;
+        titulo.innerHTML = `Bienvenido/a ${sesionActiva.nombre}
+                        <img src="${sesionActiva.avatar}" alt="Avatar" style="width: 40px; border-radius: 50%;">`;
         titulo.style.color = "green";
         loginLink.textContent = "Logout";
         loginLink.style.color = "red";
@@ -148,7 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     const usuario = usuarios.find(u => u.validarCredenciales(username, password));
 
                     if (usuario) {
-                        titulo.textContent = `Bienvenido/a ${usuario.nombre}`;
+                        titulo.innerHTML = `Bienvenido/a ${usuario.nombre}
+                        <img src="${usuario.avatar}" alt="Avatar" style="width: 40px; border-radius: 50%;">`;
                         localStorage.setItem("sesionActiva", JSON.stringify(usuario));
                         Swal.fire({
                             title: `¡Bienvenido, ${usuario.nombre}!`,
