@@ -125,16 +125,19 @@ const renderizarProductos = (arr) => {
     });
 }
 
+if (localStorage.getItem("sesionActiva")) {    
+    mostrarProductos()
+        .then((res) => {
+            arrayProductos = res; // Capturo todo el Array de Productos
+            renderizarProductos(arrayProductos);
+        })
+        .catch((error) => {
+            console.error("Promesa Rechazada", error);
+        })
+        .finally(() => {
+            console.log("Fin del Renderizado");
+        })
 
-mostrarProductos()
-    .then((res) =>{
-        arrayProductos = res; // Capturo todo el Array de Productos
-        renderizarProductos(arrayProductos);
-    })
-    .catch((error) => {
-        console.error("Promesa Rechazada", error);
-    })
-    .finally(() => {
-        console.log("Fin del Renderizado");
-    })
-
+} else {
+    document.getElementById("seccion-carrito").style.display = "none";
+}

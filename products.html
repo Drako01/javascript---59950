@@ -10,12 +10,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        
+
     </style>
 </head>
 
 <body>
     <header id="header">
+        <h2 id="titulo-bienvenida">Bienvenido Usuario</h2>
     </header>
 
     <main id="miMain">
@@ -25,17 +26,18 @@
             <input type="text" id="buscador-input" placeholder="Buscar productos...">
         </div>
         <div id="product-list"></div>
-        <h3>Carrito:</h3>
-        <div id="productos-container"></div>
-        <div class="botonera">
-            <button id="clear-cart">
-                Vaciar Carrito
-            </button>
+        <div id="seccion-carrito">
+            <h3>Carrito:</h3>
+            <div id="productos-container"></div>
+            <div class="botonera">
+                <button id="clear-cart">
+                    Vaciar Carrito
+                </button>
+            </div>
+
         </div>
 
-        
 
-        
         <!-- Slider main container -->
         <div class="swiper">
             <!-- Additional required wrapper -->
@@ -69,7 +71,7 @@
     <script src="js/productos.js"></script>
     <script src="js/promesas.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
