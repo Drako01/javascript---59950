@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         titulo.innerHTML = `Bienvenido/a ${usuario.nombre}
                         <img src="${usuario.avatar}" alt="Avatar" style="width: 40px; border-radius: 50%;">`;
                         localStorage.setItem("sesionActiva", JSON.stringify(usuario));
+                        document.getElementById("titulo").innerHTML = `Bienvenido/a ${usuario.nombre}`;
                         Swal.fire({
                             title: `¡Bienvenido, ${usuario.nombre}!`,
                             html: `<img src="${usuario.avatar}" alt="Avatar" style="width: 200px; border-radius: 50%;">`,
