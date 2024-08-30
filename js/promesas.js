@@ -95,13 +95,7 @@ const mostrarProductos = () => {
                 resolve(productosPromesa);
             }, 2000);
         } else {
-            reject(
-                Swal.fire({
-                    title: "Carrito Vacio",
-                    text: "Realice una Compra",
-                    icon: "error"
-                })
-            );
+            reject(console.error("Carrito Vacio"));
         }
     });
 }
@@ -133,6 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 console.error("Promesa Rechazada", error);
+                // Swal.fire({
+                //     title: "Carrito Vacio",
+                //     text: "Realice una Compra",
+                //     icon: "error"
+                // })
             })
             .finally(() => {
                 console.log("Fin del Renderizado");

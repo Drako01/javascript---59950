@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         Swal.showValidationMessage(`Por favor ingresa ambos campos`);
                         return false;
                     }
-                    this.location.reload();
+                    
                     return { username: username, password: password };
                 }
             }).then((result) => {
