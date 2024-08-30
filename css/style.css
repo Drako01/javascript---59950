@@ -164,6 +164,7 @@ body.dark-mode footer {
     display: flex;   
     align-items: center;
     gap: 1rem;
+    height: 60px;
 }
 .botonera {
     display: flex;
