@@ -38,6 +38,10 @@ const enlaces = [
         nombre: "Contacto"
     },
     {
+        link: "promesas",
+        nombre: "Promesas"
+    },
+    {
         link: "login",
         nombre: "Login"
     }
