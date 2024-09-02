@@ -96,6 +96,7 @@ async function obtenerDatos() {
     console.error('Error:', error);
   }
 }
+
 ```
 
 ---
