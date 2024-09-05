@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Drako01/javascript---59950#readme",
   "dependencies": {
     "bootstrap": "^5.3.0",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "javascript---59950": "file:"
   }
 }
