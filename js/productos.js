@@ -5,7 +5,11 @@ const productosBasicos = [
 ]
 
 const productos = [
-    { id: 1, nombre: "Azucar", precio: 1080 },
+    { 
+        id: 1, 
+        nombre: "Azucar", 
+        precio: 1080 
+    },
     { id: 2, nombre: "Yerba", precio: 1200 },
     { id: 3, nombre: "Café", precio: 6000 },
     { id: 4, nombre: "Miel", precio: 1800 },

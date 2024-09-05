@@ -114,7 +114,7 @@ const peticionA = async () => {
     };
 }
 
-// peticionA();
+peticionA();
 
 const peticionML = async () => {
     const respuesta = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=Kappa');
